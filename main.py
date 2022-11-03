@@ -2,6 +2,7 @@ from random import randint
 
 
 def attack(char_name: str, char_class: str) -> str:
+    """Choice of action-attack."""
     if char_class == 'warrior':
         return (f'{char_name} нанёс противнику урон, равный '
                 f'{5 + randint(3, 5)}')
@@ -11,18 +12,22 @@ def attack(char_name: str, char_class: str) -> str:
     if char_class == 'healer':
         return (f'{char_name} нанёс противнику урон, равный '
                 f'{5 + randint(-3, -1)}')
+    return char_name
 
 
 def defence(char_name: str, char_class: str) -> str:
+    """Choice of action-defence."""
     if char_class == 'warrior':
         return (f'{char_name} блокировал {10 + randint(5, 10)} ед. урона')
     if char_class == 'mage':
         return (f'{char_name} блокировал {10 + randint(-2, 2)} ед. урона')
     if char_class == 'healer':
         return (f'{char_name} блокировал {10 + randint(2, 5)} ед. урона')
+    return char_name
 
 
 def special(char_name: str, char_class: str) -> str:
+    """Choice of action-fatality."""
     if char_class == 'warrior':
         return (f'{char_name} применил специальное умение '
                 f'«Выносливость {80 + 25}»')
@@ -30,9 +35,11 @@ def special(char_name: str, char_class: str) -> str:
         return (f'{char_name} применил специальное умение «Атака {5 + 40}»')
     if char_class == 'healer':
         return (f'{char_name} применил специальное умение «Защита {10 + 30}»')
+    return char_name
 
 
 def start_training(char_name: str, char_class: str) -> str:
+    """Choice of action in training."""
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — великий мастер ближнего боя.')
     if char_class == 'mage':
@@ -57,6 +64,7 @@ def start_training(char_name: str, char_class: str) -> str:
 
 
 def choice_char_class() -> str:
+    """Character confirmation and description."""
     approve_choice: str = None
     char_class: str = None
     while approve_choice != 'y':
@@ -78,7 +86,8 @@ def choice_char_class() -> str:
     return char_class
 
 
-def main():
+def main() -> str:
+    """Input user-name and input character."""
     print('Приветствую тебя, искатель приключений!')
     print('Прежде чем начать игру...')
     char_name: str = input('...назови себя: ')
